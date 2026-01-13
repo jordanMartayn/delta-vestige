@@ -38,3 +38,18 @@ The goal is *less* mental bookkeeping and *more* follow-through, with minimal on
 - Not a maximalist “everything app” on day one.
 - Not a fully autonomous agent.
 - Not dependent on external cloud services to function (unless explicitly chosen per integration).
+
+## Local setup (fresh install)
+Prereqs:
+- Docker engine running (Linux: `sudo systemctl enable --now docker`).
+
+Steps:
+1. Copy `.env.example` to `.env` and set any machine-specific values.
+2. Start the stack: `./vendor/bin/sail up -d`
+3. Generate app key (first run only): `./vendor/bin/sail artisan key:generate`
+4. Run migrations: `./vendor/bin/sail artisan migrate`
+5. Visit `http://localhost:80`
+
+Helpful commands:
+- Check status: `./vendor/bin/sail ps`
+- Stop containers: `./vendor/bin/sail down`
